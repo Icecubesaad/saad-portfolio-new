@@ -81,7 +81,7 @@ const projects = [
   }
 ];
 interface prop{
-  setSelectedSection:any
+  setSelectedSection: (section: string) => void
 }
 function Projects({setSelectedSection}:prop) {
   return (

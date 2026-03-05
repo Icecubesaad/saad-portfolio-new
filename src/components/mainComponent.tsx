@@ -1,10 +1,6 @@
 // components/FullPageSwiper.tsx
 'use client'
 import React, {useState} from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/mousewheel';
 
 // Import your custom components
 import Experience from './experience';

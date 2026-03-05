@@ -5,11 +5,11 @@ const inter = Inter({
   weight: ["400", "700", "500"],
   subsets: ["latin"],
 });
-interface prop{
-  setSelectedSection:any
+interface Prop{
+  setSelectedSection: (section: string) => void
 }
 
-function About({setSelectedSection}:prop) {
+function About({setSelectedSection}:Prop) {
   return (
     <section onMouseEnter={()=>{setSelectedSection("about")}} id="about" className={`${inter.className}  flex w-full h-screen items-center`}>
       <div className="w-[80%] space-x-10 space-y-6  text-[17px] text-[#94a3b8]">  
@@ -23,7 +23,7 @@ function About({setSelectedSection}:prop) {
         </p>
 
         <p>
-          I'm currently employed as a <span className="text-white">freelancer</span>, where my main
+          I&apos;m currently employed as a <span className="text-white">freelancer</span>, where my main
           responsibilities include developing <span className="text-white">full-stack applications</span> and
           experimenting with <span className="text-white">AI-powered features</span> that improve user experiences.
         </p>

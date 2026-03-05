@@ -39,7 +39,7 @@ const experiences = [
   }
 ];
 interface prop{
-  setSelectedSection:any
+  setSelectedSection: (section: string) => void
 }
 function Experience({setSelectedSection}:prop) {
   return (

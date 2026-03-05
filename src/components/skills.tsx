@@ -57,7 +57,7 @@ const skillsData = {
   }
 };
 interface prop{
-  setSelectedSection:any
+  setSelectedSection: (section: string) => void
 }
 function Skills({setSelectedSection}:prop) {
   return (

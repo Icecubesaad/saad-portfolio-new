@@ -10,27 +10,21 @@ const sections = [
   { name: "skills", path: "#skills" },
 ];
 
-const types = [
-  {name:"Web Development", path:"/web"},
-  {name:"AI & ML", path:"/AI"},
-]
-
 const inter = Inter({
   weight:['400', '700', '500'],
   subsets:['latin']
 })
 
 interface prop{
-  selectedSection:any,
-  setSelectedSection:any
+  selectedSection: string,
+  setSelectedSection: (section: string) => void
 }
 
 function Introduction({selectedSection, setSelectedSection}:prop) {
   const [hoveringSelection, setHoveringSelection] = useState("");
-  const [type, settype] = useState("web development");
 
   // Smooth scroll to section
-  const handleSectionClick = (sectionName, path) => {
+  const handleSectionClick = (sectionName: string, path: string) => {
     setSelectedSection(sectionName);
     
     // Update URL hash
@@ -56,7 +50,7 @@ function Introduction({selectedSection, setSelectedSection}:prop) {
       threshold: 0
     };
 
-    const observerCallback = (entries) => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
@@ -64,7 +58,7 @@ function Introduction({selectedSection, setSelectedSection}:prop) {
           
           // Update URL hash without scrolling
           if (window.location.hash !== `#${sectionId}`) {
-            history.replaceState(null, null, `#${sectionId}`);
+            history.replaceState(null, '', `#${sectionId}`);
           }
         }
       });
@@ -87,7 +81,7 @@ function Introduction({selectedSection, setSelectedSection}:prop) {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [setSelectedSection]);
 
   return (
     <div className="w-full flex flex-col justify-center h-screen items-center">
